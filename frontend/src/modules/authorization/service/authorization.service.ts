@@ -3,14 +3,15 @@ import {AngularFireAuth} from "@angular/fire/auth";
 import {LoginParameters} from "../types/LoginParameters";
 import {AngularFireDatabase} from "@angular/fire/database";
 import {Profile} from "../types/Profile";
-import * as firebase from "firebase";
+import * as firebase from "firebase/app";
+import {EventService} from "../../app/service/event.service";
 
 @Injectable({
     providedIn: 'root'
 })
 export class AuthorizationService {
 
-    constructor(private fireAuth: AngularFireAuth, private fireDatabase: AngularFireDatabase) {
+    constructor(private fireAuth: AngularFireAuth, private fireDatabase: AngularFireDatabase, private es: EventService) {
         this.login({login: "komdosh@yandex.ru", password: "5555555555"})
     }
 
@@ -23,8 +24,8 @@ export class AuthorizationService {
                 });
             }
             this.getProfile(user.email);
+            this.es.getAll();
         });
-
     }
 
     async register(creds: LoginParameters) {
