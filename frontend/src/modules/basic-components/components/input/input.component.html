@@ -1,0 +1,16 @@
+<div [class.selected]="isSelect" [title]="tooltip">
+    <div class="title" *ngIf="title">{{ title }}</div>
+    <div class="container">
+        <input
+            [value]="value"
+            [type]="type"
+            [min]="min"
+            [max]="max"
+            [step]="step"
+            [disabled]="disabled"
+            (focus)="toggleSelect()"
+            (blur)="toggleSelect()"
+            (input)="handleChange($event)"
+        />
+    </div>
+</div>
