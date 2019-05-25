@@ -1,4 +1,19 @@
 .header {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: 1.6rem;
     height: 4.8rem;
     background-color: #fcfcfc;
+    align-items: center;
+    padding: 0 1.6rem;
+}
+
+.controls {
+    justify-self: end;
+    height: 100%;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
 }

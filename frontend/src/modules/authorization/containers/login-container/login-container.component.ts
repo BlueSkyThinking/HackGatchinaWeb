@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { LoginParameters } from '../../types/LoginParameters';
 import { Router } from '@angular/router';
+import { AppState } from '../../../app/types/AppState';
+import { Store } from '@ngrx/store';
+import { SetUserAction } from '../../actions/SetUserAction';
 
 @Component({
     selector: 'app-login-container',
@@ -8,7 +11,7 @@ import { Router } from '@angular/router';
         <div class="page">
             <mat-card class="block">
                 <div class="grid">
-                    <div class="header">Вход</div>
+                    <div class="header">GatchinaTrip</div>
                     <app-login-content
                         [parameters]="parameters"
                         (onchange)="handleChange($event)"
@@ -40,6 +43,19 @@ import { Router } from '@angular/router';
                 justify-items: center;
                 align-items: center;
                 height: 100%;
+                background: url('./../../../../assets/images/background.jpg');
+                background-size: cover;
+            }
+
+            .page::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                background-color: #000;
+                opacity: 0.5;
             }
 
             .block {
@@ -67,15 +83,22 @@ export class LoginContainerComponent {
         password: '',
     };
 
-    constructor(private readonly router: Router) {}
+    constructor(
+        private readonly router: Router,
+        private readonly store: Store<AppState>
+    ) {}
 
     public handleChange(parameters: LoginParameters) {
         this.parameters = parameters;
-
-        console.log(this.parameters);
     }
 
     public login() {
-        this.router.navigate(['./home']);
+        if (
+            this.parameters.login.trim().length > 0 &&
+            this.parameters.password.length > 0
+        ) {
+            this.store.dispatch(new SetUserAction(this.parameters));
+            this.router.navigate(['./home']);
+        }
     }
 }
