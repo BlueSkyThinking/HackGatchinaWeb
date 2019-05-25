@@ -1,8 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Router } from '@angular/router';
-import { AppState } from '../../types/AppState';
-import { Store } from '@ngrx/store';
-import { ResetUserAction } from '../../../authorization/actions/ResetUserAction';
+import { AuthorizationService } from '../../../authorization/service/authorization.service';
 
 @Component({
     selector: 'app-user-menu',
@@ -12,13 +9,9 @@ import { ResetUserAction } from '../../../authorization/actions/ResetUserAction'
 export class UserMenuComponent {
     @Input() userName: string;
 
-    constructor(
-        public readonly store: Store<AppState>,
-        public readonly router: Router
-    ) {}
+    constructor(public readonly authService: AuthorizationService) {}
 
     public logout() {
-        this.store.dispatch(new ResetUserAction());
-        this.router.navigate(['login']);
+        this.authService.logout();
     }
 }

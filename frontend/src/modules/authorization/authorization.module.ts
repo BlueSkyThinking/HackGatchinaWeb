@@ -7,12 +7,14 @@ import {RegistrationContainerComponent} from './containers/registration-containe
 import {BasicComponentsModule} from '../basic-components/basic-components.module';
 import {RouterModule} from '@angular/router';
 import {AuthorizationService} from "./service/authorization.service";
+import { RegisterContentComponent } from './components/register-content/register-content.component';
 
 @NgModule({
     declarations: [
         LoginContentComponent,
         LoginContainerComponent,
         RegistrationContainerComponent,
+        RegisterContentComponent,
     ],
     imports: [
         CommonModule,

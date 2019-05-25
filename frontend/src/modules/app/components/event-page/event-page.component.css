@@ -4,13 +4,9 @@
 }
 
 .image {
-    height: 100%;
-    width: 100%;
+    background-size: cover;
 }
 
 .content-wrapper {
     background-color: #fff;
-    /*margin-top: -40%;*/
-    /*border-radius: 30px;*/
-    /*padding: 3rem;*/
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { GEvent } from '../../types/GEvent';
 
 @Component({
     selector: 'app-event-page',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./event-page.component.css'],
 })
 export class EventPageComponent {
+    @Input() public event: GEvent;
+
     public get style() {
         return {
-            backgroundImage:
-                'url(./../../../../assets/images/event-item-full.jpg)',
+            backgroundImage: `url(${this.event.imgUrl})`,
         };
     }
 }

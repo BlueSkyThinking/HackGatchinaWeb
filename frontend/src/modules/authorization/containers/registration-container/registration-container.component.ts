@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { LoginParameters } from '../../types/LoginParameters';
+import { AuthorizationService } from '../../service/authorization.service';
+import { RegisterParameters } from '../../types/RegisterParameters';
 
 @Component({
     selector: 'app-registration-container',
@@ -8,10 +10,10 @@ import { LoginParameters } from '../../types/LoginParameters';
             <mat-card class="block">
                 <div class="grid">
                     <div class="header">Регистрация</div>
-                    <app-login-content
+                    <app-register-content
                         [parameters]="parameters"
                         (onchange)="handleChange($event)"
-                    ></app-login-content>
+                    ></app-register-content>
                     <div class="actions">
                         <button
                             mat-button
@@ -20,7 +22,11 @@ import { LoginParameters } from '../../types/LoginParameters';
                         >
                             Назад
                         </button>
-                        <button mat-raised-button color="accent">
+                        <button
+                            mat-raised-button
+                            color="accent"
+                            (click)="register()"
+                        >
                             Регистрация
                         </button>
                     </div>
@@ -70,14 +76,20 @@ import { LoginParameters } from '../../types/LoginParameters';
     ],
 })
 export class RegistrationContainerComponent {
-    public parameters: LoginParameters = {
+    public parameters: RegisterParameters = {
         login: '',
         password: '',
+        firstName: '',
+        lastName: '',
     };
 
-    public handleChange(parameters: LoginParameters) {
-        this.parameters = parameters;
+    constructor(public readonly authService: AuthorizationService) {}
 
-        console.log(this.parameters);
+    public handleChange(parameters: RegisterParameters) {
+        this.parameters = parameters;
+    }
+
+    public register() {
+        this.authService.register(this.parameters);
     }
 }
