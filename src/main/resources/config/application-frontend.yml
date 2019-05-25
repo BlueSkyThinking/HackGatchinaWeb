@@ -1,0 +1,5 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://192.168.42.33:5432/hack #dev
+    username: postgres
+    password: psql
