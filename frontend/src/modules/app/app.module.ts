@@ -9,14 +9,40 @@ import { routes } from './configs/router.config';
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LayoutComponent } from './components/layout/layout.component';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../../environments/environment.prod';
+import { userReducer } from './reducers/user.reducer';
+import { MatButtonModule, MatMenuModule } from '@angular/material';
+import { UserInfoComponent } from './components/user-info/user-info.component';
+import { IconsModule } from '../icons/icons.module';
+import { UserMenuComponent } from './components/user-menu/user-menu.component';
 
 @NgModule({
-    declarations: [AppComponent, HomeComponent, HeaderComponent, LayoutComponent],
+    declarations: [
+        AppComponent,
+        HomeComponent,
+        HeaderComponent,
+        LayoutComponent,
+        UserInfoComponent,
+        UserMenuComponent,
+    ],
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
-        AuthorizationModule,
         RouterModule.forRoot(routes),
+        StoreModule.forRoot({
+            userState: userReducer,
+        }),
+        StoreDevtoolsModule.instrument({
+            maxAge: 25,
+            logOnly: environment.production,
+        }),
+        MatButtonModule,
+        MatMenuModule,
+
+        AuthorizationModule,
+        IconsModule,
     ],
     providers: [],
     bootstrap: [AppComponent],

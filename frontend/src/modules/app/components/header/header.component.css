@@ -1,4 +1,11 @@
 .header {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: 1.6rem;
     height: 4.8rem;
     background-color: #fcfcfc;
+}
+
+.controls {
+    justify-self: end;
 }

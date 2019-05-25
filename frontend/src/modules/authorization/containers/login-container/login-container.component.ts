@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { LoginParameters } from '../../types/LoginParameters';
 import { Router } from '@angular/router';
+import { AppState } from '../../../app/types/AppState';
+import { Store } from '@ngrx/store';
+import { SetUserAction } from '../../actions/SetUserAction';
 
 @Component({
     selector: 'app-login-container',
@@ -67,15 +70,22 @@ export class LoginContainerComponent {
         password: '',
     };
 
-    constructor(private readonly router: Router) {}
+    constructor(
+        private readonly router: Router,
+        private readonly store: Store<AppState>
+    ) {}
 
     public handleChange(parameters: LoginParameters) {
         this.parameters = parameters;
-
-        console.log(this.parameters);
     }
 
     public login() {
-        this.router.navigate(['./home']);
+        if (
+            this.parameters.login.trim().length > 0 &&
+            this.parameters.password.length > 0
+        ) {
+            this.store.dispatch(new SetUserAction(this.parameters));
+            this.router.navigate(['./home']);
+        }
     }
 }

@@ -1,0 +1,6 @@
+<button mat-button class="menu-button" [matMenuTriggerFor]="userMenu">
+    <app-user-info [userName]="userName"></app-user-info>
+</button>
+<mat-menu #userMenu="matMenu" yPosition="above" [overlapTrigger]="false">
+    <button mat-menu-item (click)="logout()">Выйти</button>
+</mat-menu>

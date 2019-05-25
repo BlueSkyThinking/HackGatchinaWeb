@@ -1,1 +1,6 @@
-<div class="header"></div>
+<div class="header">
+    <div class="logo">Logo</div>
+    <div class="controls">
+        <app-user-menu [userName]="userName$ | async"></app-user-menu>
+    </div>
+</div>
