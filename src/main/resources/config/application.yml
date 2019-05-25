@@ -1,16 +1,4 @@
 spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5432/hack #dev
-    username: postgres
-    password: psql
-  jpa:
-    properties:
-      hibernate:
-        jdbc:
-          lob:
-            non_contextual_creation: true
-    hibernate:
-      ddl-auto: update
   #Additional Spring configuration
   mvc:
     throw-exception-if-no-handler-found: true
@@ -30,3 +18,7 @@ server:
     enabled: true
     mime-types: application/json,application/xml,text/html,text/xml,text/plain,application/pdf
   port: 8080
+
+firebase:
+  service-account-filename: classpath:config/serviceAccountKey.json
+  realtime-database-url: https://gatchino-4491c.firebaseio.com
