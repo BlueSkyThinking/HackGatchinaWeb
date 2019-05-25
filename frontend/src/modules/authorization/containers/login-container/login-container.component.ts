@@ -1,13 +1,17 @@
-import { Component } from '@angular/core';
-import { LoginParameters } from '../../types/LoginParameters';
-import { Router } from '@angular/router';
-import { AppState } from '../../../app/types/AppState';
-import { Store } from '@ngrx/store';
-import { SetUserAction } from '../../actions/SetUserAction';
+import {AfterViewInit, Component} from '@angular/core';
+import {LoginParameters} from '../../types/LoginParameters';
+import {Router} from '@angular/router';
+import {AppState} from '../../../app/types/AppState';
+import {Store} from '@ngrx/store';
+import {SetUserAction} from '../../actions/SetUserAction';
 
 @Component({
     selector: 'app-login-container',
     template: `
+        <video autoplay="autoplay" muted="muted" loop="loop" id="myVideo" #myVideo>
+            <source src="../../../../assets/video/back.mp4" type="video/mp4">
+        </video>
+
         <div class="page">
             <mat-card class="block">
                 <div class="grid">
@@ -37,7 +41,15 @@ import { SetUserAction } from '../../actions/SetUserAction';
         </div>
     `,
     styles: [
-        `
+            `
+            #myVideo {
+                position: fixed;
+                right: 0;
+                bottom: 0;
+                min-width: 100%;
+                min-height: 100%;
+            }
+
             .page {
                 display: grid;
                 justify-items: center;
@@ -77,16 +89,23 @@ import { SetUserAction } from '../../actions/SetUserAction';
         `,
     ],
 })
-export class LoginContainerComponent {
+export class LoginContainerComponent implements AfterViewInit {
+    constructor(
+        private readonly router: Router,
+        private readonly store: Store<AppState>
+    ) {
+    }
+
     public parameters: LoginParameters = {
         login: '',
         password: '',
     };
 
-    constructor(
-        private readonly router: Router,
-        private readonly store: Store<AppState>
-    ) {}
+    ngAfterViewInit(): void {
+        setTimeout(() => {
+            (document.getElementById("myVideo") as any).muted = true;
+        })
+    }
 
     public handleChange(parameters: LoginParameters) {
         this.parameters = parameters;

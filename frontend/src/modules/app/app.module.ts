@@ -21,6 +21,7 @@ import {EventItemComponent} from './components/event-item/event-item.component';
 import {AngularFireModule} from "@angular/fire";
 import {AngularFireAuthModule} from "@angular/fire/auth";
 import {AngularFireDatabaseModule} from "@angular/fire/database";
+import {EventPageComponent} from './components/event-page/event-page.component';
 
 const firebaseConfig = {
     apiKey: "AIzaSyC3ceJy03Jdu-LM1LOx8N7my1xIdE_GrIw",
@@ -31,8 +32,6 @@ const firebaseConfig = {
     messagingSenderId: "578405849724",
     appId: "1:578405849724:web:13b51dca04e1229b"
 };
-
-import { EventPageComponent } from './components/event-page/event-page.component';
 
 @NgModule({
     declarations: [
