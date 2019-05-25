@@ -28,18 +28,35 @@ export class EventService {
                     return true;
                 }
 
-                return event.participantEmails != null && !!Object.values(event.participantEmails).find(e =>
-                    e === userEmail
-                );
+                return this.inParticipants(event, userEmail);
             });
         });
     }
 
     async createOrUpdateEvent(event: GEvent) {
+        await this.fireDatabase.object("/events/" + event.name + event.time).set(event);
+    }
+
+    async deleteEvent(event: GEvent) {
         const userEmail = this.fireAuth.auth.currentUser.email;
         if (event.ownerEmail == userEmail || event.ownerEmail == null) {
-            await this.fireDatabase.object("/events/" + event.name + event.time).set(event);
+            await this.fireDatabase.object("/events/" + event.name + event.time).remove();
         }
+    }
 
+    async toggleEventSubscribe(event: GEvent) {
+        const userEmail = this.fireAuth.auth.currentUser.email;
+        if (event.participantEmails != null && this.inParticipants(event, userEmail)) {
+            event.participantEmails = event.participantEmails.filter(pe => pe != userEmail);
+        } else {
+            event.participantEmails.push(userEmail);
+        }
+        this.createOrUpdateEvent(event);
+    }
+
+    private inParticipants(event: GEvent, userEmail) {
+        return event.participantEmails != null && !!event.participantEmails.find(e =>
+            e === userEmail
+        );
     }
 }
