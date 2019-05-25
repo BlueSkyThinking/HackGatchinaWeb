@@ -1,32 +1,43 @@
 package com.blueskythinking.hackgatchinaweb;
 
-import com.google.auth.oauth2.GoogleCredentials;
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.FirebaseOptions;
-import org.springframework.beans.factory.annotation.Value;
+import com.blueskythinking.hackgatchinaweb.model.User;
+import com.blueskythinking.hackgatchinaweb.repository.UserRepository;
+import com.github.fabiomaffioletti.firebase.EnableFirebaseRepositories;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.core.io.Resource;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import javax.annotation.PostConstruct;
-import java.io.IOException;
+import java.util.Date;
+import java.util.List;
+
+import static com.blueskythinking.hackgatchinaweb.model.enums.Interest.Running;
+import static com.blueskythinking.hackgatchinaweb.model.enums.Interest.Walking;
 
 @EnableWebMvc
 @SpringBootApplication
+@EnableFirebaseRepositories
 public class HackGatchinaWebApplication {
 
-    @Value("classpath:config/serviceAccountKey.json")
-    private Resource serviceAccountKey;
+    @Autowired
+    private UserRepository userRepository;
 
     @PostConstruct
-    public void initFirebaseApp() throws IOException {
-        FirebaseOptions options = new FirebaseOptions.Builder()
-                .setCredentials(GoogleCredentials.fromStream(serviceAccountKey.getInputStream()))
-                .setDatabaseUrl("https://gatchino-4491c.firebaseio.com")
-                .build();
+    public void initFirebaseApp() {
+        //createTempUsr();
+    }
 
-        FirebaseApp.initializeApp(options);
+    public void createTempUsr() {
+        User u = new User();
+        u.setEmail("test@mail.ru");
+        u.setFirstName("Иван");
+        u.setLastName("Иванов");
+        u.setDateOfBirth(new Date());
+        u.setAbout("I'm very interesting person");
+        u.setInterests(List.of(Walking, Running));
+        u.setId(u.getEmail().replaceAll("\\.", "%"));
+        userRepository.set(u);
     }
 
     public static void main(String[] args) {
