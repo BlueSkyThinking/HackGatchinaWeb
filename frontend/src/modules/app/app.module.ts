@@ -13,10 +13,11 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../../environments/environment.prod';
 import { userReducer } from './reducers/user.reducer';
-import { MatButtonModule, MatMenuModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatMenuModule } from '@angular/material';
 import { UserInfoComponent } from './components/user-info/user-info.component';
 import { IconsModule } from '../icons/icons.module';
 import { UserMenuComponent } from './components/user-menu/user-menu.component';
+import { EventItemComponent } from './components/event-item/event-item.component';
 
 @NgModule({
     declarations: [
@@ -26,6 +27,7 @@ import { UserMenuComponent } from './components/user-menu/user-menu.component';
         LayoutComponent,
         UserInfoComponent,
         UserMenuComponent,
+        EventItemComponent,
     ],
     imports: [
         BrowserModule,
@@ -43,6 +45,7 @@ import { UserMenuComponent } from './components/user-menu/user-menu.component';
 
         AuthorizationModule,
         IconsModule,
+        MatCardModule,
     ],
     providers: [],
     bootstrap: [AppComponent],

@@ -35,6 +35,19 @@ import { LoginParameters } from '../../types/LoginParameters';
                 justify-items: center;
                 align-items: center;
                 height: 100%;
+                background: url('./../../../../assets/images/background.jpg');
+                background-size: cover;
+            }
+
+            .page::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                background-color: #000;
+                opacity: 0.5;
             }
 
             .block {

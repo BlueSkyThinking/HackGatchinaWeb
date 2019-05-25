@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginContentComponent } from './components/login-content/login-content.component';
-import { RegistrationComponent } from './components/registration/registration.component';
 import { MatButtonModule, MatCardModule } from '@angular/material';
 import { LoginContainerComponent } from './containers/login-container/login-container.component';
 import { RegistrationContainerComponent } from './containers/registration-container/registration-container.component';
@@ -11,7 +10,6 @@ import { RouterModule } from '@angular/router';
 @NgModule({
     declarations: [
         LoginContentComponent,
-        RegistrationComponent,
         LoginContainerComponent,
         RegistrationContainerComponent,
     ],

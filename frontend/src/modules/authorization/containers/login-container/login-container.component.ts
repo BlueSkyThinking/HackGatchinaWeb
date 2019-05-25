@@ -11,7 +11,7 @@ import { SetUserAction } from '../../actions/SetUserAction';
         <div class="page">
             <mat-card class="block">
                 <div class="grid">
-                    <div class="header">Вход</div>
+                    <div class="header">GatchinaTrip</div>
                     <app-login-content
                         [parameters]="parameters"
                         (onchange)="handleChange($event)"
@@ -43,6 +43,19 @@ import { SetUserAction } from '../../actions/SetUserAction';
                 justify-items: center;
                 align-items: center;
                 height: 100%;
+                background: url('./../../../../assets/images/background.jpg');
+                background-size: cover;
+            }
+
+            .page::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                background-color: #000;
+                opacity: 0.5;
             }
 
             .block {
