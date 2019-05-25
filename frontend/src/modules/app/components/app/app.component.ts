@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {AuthorizationService} from "../../../authorization/service/authorization.service";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'frontend';
+
+    constructor(private au: AuthorizationService) {
+    }
 }
