@@ -12,26 +12,23 @@ import {EventService} from "../../app/service/event.service";
 export class AuthorizationService {
 
     constructor(private fireAuth: AngularFireAuth, private fireDatabase: AngularFireDatabase, private es: EventService) {
-        this.login({login: "komdosh@yandex.ru", password: "5555555555"})
+        this.fireAuth.authState.subscribe(user => {
+            if (user != null) {
+                this.getProfile(user.email);
+                this.es.getAll();
+            }
+        });
     }
 
     async login(creds: LoginParameters) {
-        await this.fireAuth.authState.subscribe(user => {
-            if (user == null) {
-                this.fireAuth.auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
-                this.fireAuth.auth.signInWithEmailAndPassword(creds.login, creds.password).then(fireCred => {
-                    this.getProfile(fireCred.user.email);
-                });
-            }
-            this.getProfile(user.email);
-            this.es.getAll();
+        await this.fireAuth.auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
+        this.fireAuth.auth.signInWithEmailAndPassword(creds.login, creds.password).then(fireCred => {
+            this.getProfile(fireCred.user.email);
         });
     }
 
     async register(creds: LoginParameters) {
         const userCredential = await this.fireAuth.auth.createUserWithEmailAndPassword(creds.login, creds.password);
-        const fireUser = userCredential.user;
-        this.fireAuth.auth.currentUser;
     }
 
     async updateProfile(profile: Profile) {
