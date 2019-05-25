@@ -32,6 +32,7 @@ const firebaseConfig = {
     appId: "1:578405849724:web:13b51dca04e1229b"
 };
 
+import { EventPageComponent } from './components/event-page/event-page.component';
 
 @NgModule({
     declarations: [
@@ -42,6 +43,7 @@ const firebaseConfig = {
         UserInfoComponent,
         UserMenuComponent,
         EventItemComponent,
+        EventPageComponent,
     ],
     imports: [
         BrowserModule,

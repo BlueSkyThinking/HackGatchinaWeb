@@ -1,5 +1,12 @@
+/*.grid {*/
+/*    display: grid;*/
+/*    grid-template-rows: auto 1fr;*/
+/*    height: 100%;*/
+/*}*/
+
 .grid {
     display: grid;
-    grid-template-rows: auto 1fr;
-    height: 100%;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 0.2rem;
+    height: max-content;
 }
