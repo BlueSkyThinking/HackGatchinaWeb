@@ -9,6 +9,10 @@ import { AuthorizationService } from '../../service/authorization.service';
 @Component({
     selector: 'app-login-container',
     template: `
+        <video autoplay="autoplay" muted="muted" loop="loop" id="myVideo" #myVideo>
+            <source src="../../../../assets/video/back.mp4" type="video/mp4">
+        </video>
+
         <div class="page">
             <mat-card class="block">
                 <div class="grid">
@@ -38,7 +42,15 @@ import { AuthorizationService } from '../../service/authorization.service';
         </div>
     `,
     styles: [
-        `
+            `
+            #myVideo {
+                position: fixed;
+                right: 0;
+                bottom: 0;
+                min-width: 100%;
+                min-height: 100%;
+            }
+
             .page {
                 display: grid;
                 justify-items: center;
@@ -78,16 +90,18 @@ import { AuthorizationService } from '../../service/authorization.service';
         `,
     ],
 })
-export class LoginContainerComponent {
-    public parameters: LoginParameters = {
-        login: '',
-        password: '',
-    };
-
+export class LoginContainerComponent implements AfterViewInit {
     constructor(
         private readonly router: Router,
         private readonly authService: AuthorizationService
-    ) {}
+    ) {
+    }
+
+    ngAfterViewInit(): void {
+        setTimeout(() => {
+            (document.getElementById("myVideo") as any).muted = true;
+        })
+    }
 
     public handleChange(parameters: LoginParameters) {
         this.parameters = parameters;
