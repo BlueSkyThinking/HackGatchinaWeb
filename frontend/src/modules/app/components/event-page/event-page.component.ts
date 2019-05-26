@@ -5,6 +5,8 @@ import { AppState } from '../../types/AppState';
 import { select, Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { selectUser } from '../../../authorization/selectors/selectUser';
+import { ResetCurrentEventAction } from '../../actions/ResetCurrentEventAction';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-event-page',
@@ -20,7 +22,8 @@ export class EventPageComponent implements OnDestroy {
 
     constructor(
         private readonly store: Store<AppState>,
-        private readonly eventService: EventService
+        private readonly eventService: EventService,
+        private readonly router: Router
     ) {
         this.userSubscription = this.store
             .pipe(select(selectUser))
@@ -39,6 +42,11 @@ export class EventPageComponent implements OnDestroy {
 
     public isParticipant() {
         return this.eventService.inParticipants(this.event, this.email);
+    }
+
+    public goToBack() {
+        this.store.dispatch(new ResetCurrentEventAction());
+        this.router.navigate(['/home']);
     }
 
     public ngOnDestroy(): void {

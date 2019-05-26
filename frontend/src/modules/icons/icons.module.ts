@@ -5,6 +5,7 @@ import { PlusIconComponent } from './components/plus-icon/plus-icon.component';
 import { ClockIconComponent } from './components/clock-icon/clock-icon.component';
 import { PeopleIconComponent } from './components/people-icon/people-icon.component';
 import { CurrencyIconComponent } from './components/currency-icon/currency-icon.component';
+import { ArrowBackComponent } from './components/arrow-back/arrow-back.component';
 
 @NgModule({
     declarations: [
@@ -13,6 +14,7 @@ import { CurrencyIconComponent } from './components/currency-icon/currency-icon.
         ClockIconComponent,
         PeopleIconComponent,
         CurrencyIconComponent,
+        ArrowBackComponent,
     ],
     imports: [CommonModule],
     exports: [
@@ -21,6 +23,7 @@ import { CurrencyIconComponent } from './components/currency-icon/currency-icon.
         ClockIconComponent,
         PeopleIconComponent,
         CurrencyIconComponent,
+        ArrowBackComponent,
     ],
 })
 export class IconsModule {}

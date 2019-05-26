@@ -39,3 +39,15 @@
     grid-gap: 1.4rem;
     padding: 0 1.4rem;
 }
+
+.back-btn {
+    position: absolute;
+    top: 75px;
+    left: 25px;
+}
+
+.back-btn-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: 1rem;
+}
