@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { LoginParameters } from '../../types/LoginParameters';
 import { Router } from '@angular/router';
 import { AppState } from '../../../app/types/AppState';
@@ -9,8 +9,14 @@ import { AuthorizationService } from '../../service/authorization.service';
 @Component({
     selector: 'app-login-container',
     template: `
-        <video autoplay="autoplay" muted="muted" loop="loop" id="myVideo" #myVideo>
-            <source src="../../../../assets/video/back.mp4" type="video/mp4">
+        <video
+            autoplay="autoplay"
+            muted="muted"
+            loop="loop"
+            id="myVideo"
+            #myVideo
+        >
+            <source src="../../../../assets/video/back.mp4" type="video/mp4" />
         </video>
 
         <div class="page">
@@ -42,7 +48,7 @@ import { AuthorizationService } from '../../service/authorization.service';
         </div>
     `,
     styles: [
-            `
+        `
             #myVideo {
                 position: fixed;
                 right: 0;
@@ -91,16 +97,20 @@ import { AuthorizationService } from '../../service/authorization.service';
     ],
 })
 export class LoginContainerComponent implements AfterViewInit {
+    public parameters: LoginParameters = {
+        login: '',
+        password: '',
+    };
+
     constructor(
         private readonly router: Router,
         private readonly authService: AuthorizationService
-    ) {
-    }
+    ) {}
 
     ngAfterViewInit(): void {
         setTimeout(() => {
-            (document.getElementById("myVideo") as any).muted = true;
-        })
+            (document.getElementById('myVideo') as any).muted = true;
+        });
     }
 
     public handleChange(parameters: LoginParameters) {

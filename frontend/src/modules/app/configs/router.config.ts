@@ -5,9 +5,11 @@ import { LayoutComponent } from '../components/layout/layout.component';
 import { HomeComponent } from '../components/home/home.component';
 import { AuthGuard } from '../../authorization/guard/auth.guard';
 import { EventPageContainerComponent } from '../containers/event-page-container/event-page-container.component';
+import { AddEventPageContainerComponent } from '../containers/add-event-page-container/add-event-page-container.component';
 
 const homeRoutes: Routes = [
     { path: 'event', component: EventPageContainerComponent },
+    { path: 'add-event', component: AddEventPageContainerComponent },
     { path: '**', component: HomeComponent },
 ];
 

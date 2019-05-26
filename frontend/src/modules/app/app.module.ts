@@ -30,6 +30,9 @@ import { eventReducer } from './reducers/event.reducer';
 import { EventListContainerComponent } from './containers/event-list-container/event-list-container.component';
 import { EventListComponent } from './components/event-list/event-list.component';
 import { EventPageContainerComponent } from './containers/event-page-container/event-page-container.component';
+import { AddEventPageComponent } from './components/add-event-page/add-event-page.component';
+import { BasicComponentsModule } from '../basic-components/basic-components.module';
+import { AddEventPageContainerComponent } from './containers/add-event-page-container/add-event-page-container.component';
 
 const firebaseConfig = {
     apiKey: 'AIzaSyC3ceJy03Jdu-LM1LOx8N7my1xIdE_GrIw',
@@ -54,6 +57,8 @@ const firebaseConfig = {
         EventListContainerComponent,
         EventListComponent,
         EventPageContainerComponent,
+        AddEventPageComponent,
+        AddEventPageContainerComponent,
     ],
     imports: [
         BrowserModule,
@@ -77,6 +82,7 @@ const firebaseConfig = {
         AuthorizationModule,
         IconsModule,
         MatCardModule,
+        BasicComponentsModule,
     ],
     providers: [],
     bootstrap: [AppComponent],

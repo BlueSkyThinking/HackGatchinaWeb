@@ -1,14 +1,16 @@
 .grid {
     display: grid;
+    grid-gap: 1.4rem;
+    padding: 1.6rem;
     height: 100%;
+    align-items: center;
 }
 
-.image {
-    background-size: cover;
-}
-
-.content-wrapper {
-    background-color: #fff;
+.block {
+    display: grid;
+    grid-gap: 1.4rem;
+    width: 550px;
+    margin: 0 auto;
 }
 
 .title {
@@ -18,7 +20,5 @@
 
 .content {
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
     grid-gap: 1.4rem;
-    padding: 2.4rem;
 }

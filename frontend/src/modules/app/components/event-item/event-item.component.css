@@ -59,4 +59,10 @@
     background: none;
     color: #fff;
     padding: 0.8rem 1.6rem;
+    transition: background-color 0.2s ease;
+}
+
+.button:hover {
+    background-color: #fff;
+    color: #000;
 }

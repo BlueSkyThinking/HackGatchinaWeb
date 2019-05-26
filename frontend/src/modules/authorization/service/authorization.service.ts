@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { LoginParameters } from '../types/LoginParameters';
 import { AngularFireDatabase } from '@angular/fire/database';
-import { Interest, Profile } from '../types/Profile';
+import { Profile } from '../types/Profile';
 import * as firebase from 'firebase/app';
 import { EventService } from '../../app/service/event.service';
 import { AppState } from '../../app/types/AppState';
@@ -71,7 +71,12 @@ export class AuthorizationService {
             .object('/users/' + email.replace('.', '%'))
             .valueChanges()
             .subscribe((user: User) => {
-                this.store.dispatch(new SetUserAction(user));
+                this.store.dispatch(
+                    new SetUserAction({
+                        ...user,
+                        email: this.fireAuth.auth.currentUser.email,
+                    })
+                );
                 this.router.navigate(['/home']);
             });
     }

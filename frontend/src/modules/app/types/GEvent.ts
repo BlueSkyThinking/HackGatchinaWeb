@@ -10,5 +10,6 @@ export interface GEvent {
 }
 
 export enum Section {
-    Walk = 'Прогулки', Run = 'Бег'
+    Walk = 'Прогулки',
+    Run = 'Бег',
 }

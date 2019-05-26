@@ -5,6 +5,7 @@ import { GEvent } from '../types/GEvent';
 import { AppState } from '../types/AppState';
 import { Store } from '@ngrx/store';
 import { SetEventListAction } from '../actions/SetEventListAction';
+import { EventParameters } from '../types/EventParameters';
 
 @Injectable({
     providedIn: 'root',
@@ -41,7 +42,7 @@ export class EventService {
             });
     }
 
-    async createOrUpdateEvent(event: GEvent) {
+    async createOrUpdateEvent(event: EventParameters) {
         await this.fireDatabase
             .object('/events/' + event.name + event.time)
             .set(event);
@@ -49,27 +50,27 @@ export class EventService {
 
     async deleteEvent(event: GEvent) {
         const userEmail = this.fireAuth.auth.currentUser.email;
-        if (event.ownerEmail == userEmail || event.ownerEmail == null) {
+        if (event.ownerEmail === userEmail || event.ownerEmail == null) {
             await this.fireDatabase
                 .object('/events/' + event.name + event.time)
                 .remove();
         }
     }
 
-    async toggleEventSubscribe(event: GEvent) {
-        const userEmail = this.fireAuth.auth.currentUser.email;
-        if (
-            event.participantEmails != null &&
-            this.inParticipants(event, userEmail)
-        ) {
-            event.participantEmails = event.participantEmails.filter(
-                pe => pe != userEmail
-            );
-        } else {
-            event.participantEmails.push(userEmail);
-        }
-        this.createOrUpdateEvent(event);
-    }
+    // async toggleEventSubscribe(event: GEvent) {
+    //     const userEmail = this.fireAuth.auth.currentUser.email;
+    //     if (
+    //         event.participantEmails != null &&
+    //         this.inParticipants(event, userEmail)
+    //     ) {
+    //         event.participantEmails = event.participantEmails.filter(
+    //             pe => pe !== userEmail
+    //         );
+    //     } else {
+    //         event.participantEmails.push(userEmail);
+    //     }
+    //     this.createOrUpdateEvent(event);
+    // }
 
     private inParticipants(event: GEvent, userEmail) {
         return (
