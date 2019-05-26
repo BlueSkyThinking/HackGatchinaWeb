@@ -1,9 +1,6 @@
 import { AfterViewInit, Component } from '@angular/core';
 import { LoginParameters } from '../../types/LoginParameters';
 import { Router } from '@angular/router';
-import { AppState } from '../../../app/types/AppState';
-import { Store } from '@ngrx/store';
-import { SetUserAction } from '../../actions/SetUserAction';
 import { AuthorizationService } from '../../service/authorization.service';
 
 @Component({
@@ -22,7 +19,11 @@ import { AuthorizationService } from '../../service/authorization.service';
         <div class="page">
             <mat-card class="block">
                 <div class="grid">
-                    <div class="header">GatchinaTrip</div>
+                    <div class="header">
+                        <div class="icon-container">
+                            <app-logo></app-logo>
+                        </div>
+                    </div>
                     <app-login-content
                         [parameters]="parameters"
                         (onchange)="handleChange($event)"
@@ -88,10 +89,16 @@ import { AuthorizationService } from '../../service/authorization.service';
 
             .header {
                 text-align: center;
+                margin: 0 auto;
             }
 
             .actions {
                 justify-self: end;
+            }
+
+            .icon-container {
+                width: 8rem;
+                height: 8rem;
             }
         `,
     ],

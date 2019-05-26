@@ -10,11 +10,11 @@
 }
 
 .active {
-    color: #6295dd;
+    color: #000000;
 }
 
 .disabled {
-    color: #6295dd;
+    color: #000000;
 }
 
 textarea {
@@ -23,7 +23,7 @@ textarea {
     border-radius: 0.3rem;
     border: 0.1rem solid #eee;
     font-size: 1.4rem;
-    outline-color: #6295dd;
+    outline-color: #000000;
     box-sizing: border-box;
     resize: none;
 }

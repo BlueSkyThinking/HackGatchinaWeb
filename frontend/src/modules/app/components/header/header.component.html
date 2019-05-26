@@ -1,5 +1,12 @@
 <div class="header">
-    <div class="logo">GatchinaTrip</div>
+    <div class="logo">
+        <div class="icon-container">
+            <app-logo></app-logo>
+        </div>
+        <div>
+            GatchinaTrip
+        </div>
+    </div>
     <div class="controls">
         <app-user-menu [userName]="userName$ | async"></app-user-menu>
     </div>

@@ -72,7 +72,7 @@ export class EventService {
         this.createOrUpdateEvent(event);
     }
 
-    private inParticipants(event: GEvent, userEmail) {
+    public inParticipants(event: GEvent, userEmail) {
         return (
             event.participantEmails != null &&
             !!event.participantEmails.find(e => e === userEmail)

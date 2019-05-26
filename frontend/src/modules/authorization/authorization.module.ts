@@ -8,6 +8,7 @@ import {BasicComponentsModule} from '../basic-components/basic-components.module
 import {RouterModule} from '@angular/router';
 import {AuthorizationService} from "./service/authorization.service";
 import { RegisterContentComponent } from './components/register-content/register-content.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
     declarations: [
@@ -22,6 +23,7 @@ import { RegisterContentComponent } from './components/register-content/register
         MatButtonModule,
         BasicComponentsModule,
         RouterModule,
+        SharedModule,
     ],
     providers: [
         AuthorizationService

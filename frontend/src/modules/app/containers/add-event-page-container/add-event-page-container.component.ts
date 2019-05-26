@@ -55,7 +55,6 @@ export class AddEventPageContainerComponent implements OnDestroy {
 
     public handleChange(parameters: EventParameters) {
         this.parameters = parameters;
-        console.log(this.parameters);
     }
 
     public handleCreate() {

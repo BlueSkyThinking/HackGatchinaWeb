@@ -26,6 +26,16 @@ export class AddEventPageComponent {
         });
     }
 
+    public handleChangeNumberValue(
+        value: string,
+        field: keyof EventParameters
+    ) {
+        this.onchange.emit({
+            ...this.parameters,
+            [field]: Number(value),
+        });
+    }
+
     public handleChangeTextArea(event: Event) {
         this.onchange.emit({
             ...this.parameters,

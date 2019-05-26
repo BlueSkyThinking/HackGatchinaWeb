@@ -16,4 +16,13 @@
 .logo {
     font-size: 1.8rem;
     font-weight: bold;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: 1rem;
+    align-items: center;
+}
+
+.icon-container {
+    width: 2.8rem;
+    height: 2.8rem;
 }

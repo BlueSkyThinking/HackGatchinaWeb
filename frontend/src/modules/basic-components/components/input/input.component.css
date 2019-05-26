@@ -19,7 +19,7 @@ input {
     border-radius: 0.2rem;
     padding: 0.8rem;
     box-sizing: border-box;
-    outline-color: #6295dd;
+    outline-color: #000000;
     transition: outline-color 0.2s ease;
     background-color: #fff;
     color: #000;
@@ -30,5 +30,5 @@ input:disabled {
 }
 
 .selected .title {
-    color: #6295dd;
+    color: #000000;
 }
