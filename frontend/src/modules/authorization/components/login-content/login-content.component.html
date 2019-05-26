@@ -1,0 +1,18 @@
+<div class="content">
+    <div>
+        <app-input
+            title="Логин"
+            [value]="parameters.login"
+            (onchange)="handleChange($event, 'login')"
+        ></app-input>
+    </div>
+
+    <div>
+        <app-input
+            title="Пароль"
+            [value]="parameters.password"
+            [type]="inputType.PASSWORD"
+            (onchange)="handleChange($event, 'password')"
+        ></app-input>
+    </div>
+</div>

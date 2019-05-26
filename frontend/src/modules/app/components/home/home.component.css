@@ -1,0 +1,12 @@
+.add-btn {
+    position: fixed;
+    bottom: 2.5rem;
+    right: 2.5rem;
+}
+
+.icon-container {
+    height: 1.6rem;
+    width: 1.6rem;
+    outline: none;
+    user-select: none;
+}

@@ -1,0 +1,20 @@
+<div class="textarea">
+    <div
+        class="label"
+        [class.active]="isFocus"
+        [class.disabled]="disabled"
+        *ngIf="label"
+    >
+        {{ label }}
+    </div>
+    <textarea
+        [value]="value"
+        [rows]="rows"
+        [cols]="cols"
+        [disabled]="disabled"
+        [readOnly]="readonly"
+        (input)="handleChange($event)"
+        (focus)="handleFocus()"
+        (blur)="handleBlur()"
+    ></textarea>
+</div>

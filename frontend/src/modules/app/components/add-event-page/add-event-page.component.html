@@ -1,0 +1,40 @@
+<div class="grid">
+    <mat-card class="block">
+        <div class="title">Создание события</div>
+        <div class="content">
+            <app-input
+                title="Имя"
+                [value]="parameters.name"
+                (onchange)="handleChange($event, 'name')"
+            ></app-input>
+            <app-input
+                title="Стоимость"
+                [value]="parameters.price"
+                (onchange)="handleChange($event, 'price')"
+            ></app-input>
+            <app-input
+                title="Время"
+                [value]="parameters.time.toString()"
+                (onchange)="handleChange($event, 'time')"
+            ></app-input>
+            <app-input
+                title="Максимальное кол-во человек"
+                [value]="parameters.maxCountParticipants.toString()"
+                (onchange)="handleChange($event, 'maxCountParticipants')"
+            ></app-input>
+            <app-input
+                title="Ссылка на изображение"
+                [value]="parameters.imgUrl"
+                (onchange)="handleChange($event, 'imgUrl')"
+            ></app-input>
+            <app-textarea
+                label="Описание"
+                [value]="parameters.description"
+                (onchange)="handleChangeTextArea($event)"
+            ></app-textarea>
+        </div>
+        <div class="actions">
+            <button mat-button (click)="handleCreate()">Создать</button>
+        </div>
+    </mat-card>
+</div>

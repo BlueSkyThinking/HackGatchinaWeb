@@ -1,0 +1,34 @@
+<div class="content">
+    <div>
+        <app-input
+            title="Логин"
+            [value]="parameters.login"
+            (onchange)="handleChange($event, 'login')"
+        ></app-input>
+    </div>
+
+    <div>
+        <app-input
+            title="Имя"
+            [value]="parameters.firstName"
+            (onchange)="handleChange($event, 'firstName')"
+        ></app-input>
+    </div>
+
+    <div>
+        <app-input
+            title="Фамилия"
+            [value]="parameters.lastName"
+            (onchange)="handleChange($event, 'lastName')"
+        ></app-input>
+    </div>
+
+    <div>
+        <app-input
+            title="Пароль"
+            [value]="parameters.password"
+            [type]="inputType.PASSWORD"
+            (onchange)="handleChange($event, 'password')"
+        ></app-input>
+    </div>
+</div>

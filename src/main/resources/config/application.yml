@@ -1,0 +1,24 @@
+spring:
+  #Additional Spring configuration
+  mvc:
+    throw-exception-if-no-handler-found: true
+  freemarker:
+    expose-request-attributes: true
+  devtools:
+    livereload:
+      enabled: false
+    add-properties: false
+  jmx:
+    default-domain: loc
+server:
+  servlet:
+    session:
+      timeout: 1920m
+  compression:
+    enabled: true
+    mime-types: application/json,application/xml,text/html,text/xml,text/plain,application/pdf
+  port: 8080
+
+firebase:
+  service-account-filename: classpath:config/serviceAccountKey.json
+  realtime-database-url: https://gatchino-4491c.firebaseio.com

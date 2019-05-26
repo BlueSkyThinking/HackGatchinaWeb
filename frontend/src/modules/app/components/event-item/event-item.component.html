@@ -1,0 +1,16 @@
+<div class="item">
+    <div class="image-wrapper">
+        <img class="image" [src]="event.imgUrl" />
+    </div>
+
+    <div class="content-wrapper">
+        <div class="content">
+            <div class="title">{{ event.name }}</div>
+            <div>
+                <button class="button" (click)="handleSelect()">
+                    Подробнее
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

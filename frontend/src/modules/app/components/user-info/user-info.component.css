@@ -1,0 +1,11 @@
+.grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: 1.6rem;
+    align-items: center;
+}
+
+.avatar {
+    width: 3.2rem;
+    height: 3.2rem;
+}
