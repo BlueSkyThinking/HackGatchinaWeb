@@ -7,5 +7,18 @@ export interface Profile {
 }
 
 export enum Interest {
-    Walk = 'Прогулки', Run = 'Бег'
+    ARCHITECTURE = 'Архитектура',
+    CINEMA = 'Кино',
+    PAINTING = 'Живопись',
+    COWORKING = 'Коворкинг',
+    PARK = 'Парк',
+    FESTIVAL = 'Фестиваль',
+    COFFEE = 'Кофе',
+    MUSEUM = 'Музей',
+    EVENT = 'Событие',
+    NATURE = 'Природа',
+    WORKSHOP = 'Семинар',
+    PERFOMANCE = 'Спектакль',
+    CONCERT = 'Концерт',
+    FOOD = 'Еда',
 }
