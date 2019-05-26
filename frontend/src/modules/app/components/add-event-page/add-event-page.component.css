@@ -22,3 +22,13 @@
     display: grid;
     grid-gap: 1.4rem;
 }
+
+.section-tittle {
+    color: #999;
+    margin-bottom: 0.4rem;
+    font-size: 1.2rem;
+}
+
+.actions {
+    justify-self: end;
+}

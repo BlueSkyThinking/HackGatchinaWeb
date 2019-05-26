@@ -5,8 +5,9 @@ export interface GEvent {
     price: number;
     participantEmails: Array<string>;
     ownerEmail: string;
-    time: Date;
+    time: number;
     imgUrl: string;
+    maxCountParticipants: number;
 }
 
 export enum Section {

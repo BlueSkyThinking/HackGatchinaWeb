@@ -10,17 +10,19 @@
             <app-input
                 title="Стоимость"
                 [value]="parameters.price"
-                (onchange)="handleChange($event, 'price')"
+                (onchange)="handleChangeNumberValue($event, 'price')"
             ></app-input>
             <app-input
                 title="Время"
                 [value]="parameters.time.toString()"
-                (onchange)="handleChange($event, 'time')"
+                (onchange)="handleChangeNumberValue($event, 'time')"
             ></app-input>
             <app-input
                 title="Максимальное кол-во человек"
                 [value]="parameters.maxCountParticipants.toString()"
-                (onchange)="handleChange($event, 'maxCountParticipants')"
+                (onchange)="
+                    handleChangeNumberValue($event, 'maxCountParticipants')
+                "
             ></app-input>
             <app-input
                 title="Ссылка на изображение"
@@ -32,6 +34,20 @@
                 [value]="parameters.description"
                 (onchange)="handleChangeTextArea($event)"
             ></app-textarea>
+            <div>
+                <div class="section-tittle">Секции</div>
+                <div>
+                    <mat-chip-list>
+                        <mat-chip
+                            *ngFor="let section of sections"
+                            [selected]="isSelected(section)"
+                            (click)="handleSelectSection($event, section)"
+                        >
+                            {{ section }}
+                        </mat-chip>
+                    </mat-chip-list>
+                </div>
+            </div>
         </div>
         <div class="actions">
             <button mat-button (click)="handleCreate()">Создать</button>

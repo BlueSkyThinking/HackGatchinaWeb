@@ -16,6 +16,7 @@ import { userReducer } from './reducers/user.reducer';
 import {
     MatButtonModule,
     MatCardModule,
+    MatChipsModule,
     MatMenuModule,
 } from '@angular/material';
 import { UserInfoComponent } from './components/user-info/user-info.component';
@@ -33,6 +34,7 @@ import { EventPageContainerComponent } from './containers/event-page-container/e
 import { AddEventPageComponent } from './components/add-event-page/add-event-page.component';
 import { BasicComponentsModule } from '../basic-components/basic-components.module';
 import { AddEventPageContainerComponent } from './containers/add-event-page-container/add-event-page-container.component';
+import { SharedModule } from '../shared/shared.module';
 
 const firebaseConfig = {
     apiKey: 'AIzaSyC3ceJy03Jdu-LM1LOx8N7my1xIdE_GrIw',
@@ -78,11 +80,13 @@ const firebaseConfig = {
         }),
         MatButtonModule,
         MatMenuModule,
+        MatChipsModule,
 
         AuthorizationModule,
         IconsModule,
         MatCardModule,
         BasicComponentsModule,
+        SharedModule,
     ],
     providers: [],
     bootstrap: [AppComponent],

@@ -4,7 +4,55 @@
         <div class="content">
             <div class="title">{{ event.name }}</div>
             <div class="description">{{ event.description }}</div>
-            <div class="price">Стоимость: {{ event.price }}</div>
+
+            <div class="section-container">
+                <div class="section">
+                    <div class="icon-container">
+                        <app-clock-icon></app-clock-icon>
+                    </div>
+                    <div>{{ event.time }} мин.</div>
+                </div>
+                <div class="section">
+                    <div class="icon-container">
+                        <app-people-icon></app-people-icon>
+                    </div>
+                    <div>
+                        {{ event.maxCountParticipants }} (Учавствуют:
+                        {{ event.participantEmails.length }})
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="icon-container">
+                        <app-currency-icon></app-currency-icon>
+                    </div>
+                    <div>{{ event.price }}</div>
+                </div>
+
+                <div class="section">Создатель: {{ event.ownerEmail }}</div>
+            </div>
+
+            <div class="actions">
+                <button
+                    mat-raised-button
+                    color="accent"
+                    (click)="handleParticipate()"
+                >
+                    {{ isParticipant() ? 'Отменить участие' : 'Учавствовать' }}
+                </button>
+            </div>
         </div>
     </div>
+    <button
+        mat-raised-button
+        class="back-btn"
+        color="accent"
+        (click)="goToBack()"
+    >
+        <div class="back-btn-grid">
+            <div class="icon-container">
+                <app-arrow-back></app-arrow-back>
+            </div>
+            <div>Назад</div>
+        </div>
+    </button>
 </div>
