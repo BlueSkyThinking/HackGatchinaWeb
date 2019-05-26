@@ -1,11 +1,20 @@
 import { Component } from '@angular/core';
-import { LoginParameters } from '../../types/LoginParameters';
 import { AuthorizationService } from '../../service/authorization.service';
 import { RegisterParameters } from '../../types/RegisterParameters';
 
 @Component({
     selector: 'app-registration-container',
     template: `
+        <video
+            autoplay="autoplay"
+            muted="muted"
+            loop="loop"
+            id="myVideo"
+            #myVideo
+        >
+            <source src="../../../../assets/video/back.mp4" type="video/mp4" />
+        </video>
+
         <div class="page">
             <mat-card class="block">
                 <div class="grid">
@@ -71,6 +80,14 @@ import { RegisterParameters } from '../../types/RegisterParameters';
 
             .actions {
                 justify-self: end;
+            }
+
+            #myVideo {
+                position: fixed;
+                right: 0;
+                bottom: 0;
+                min-width: 100%;
+                min-height: 100%;
             }
         `,
     ],

@@ -18,6 +18,14 @@ export class EventItemComponent {
         private readonly router: Router
     ) {}
 
+    get style() {
+        return {
+            background: `url(${this.event.imgUrl})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+        };
+    }
+
     public handleSelect() {
         this.store.dispatch(new SetCurrentEventAction(this.event));
         this.router.navigate(['/home/event']);
