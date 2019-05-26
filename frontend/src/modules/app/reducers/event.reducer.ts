@@ -23,7 +23,12 @@ export function eventReducer(
         case SetEventListAction.type:
             return {
                 ...state,
-                events: action.payload,
+                events: action.payload.map(event => ({
+                    ...event,
+                    participantEmails: event.participantEmails
+                        ? event.participantEmails
+                        : [],
+                })),
             };
 
         case ResetEventListAction.type:

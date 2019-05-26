@@ -57,20 +57,20 @@ export class EventService {
         }
     }
 
-    // async toggleEventSubscribe(event: GEvent) {
-    //     const userEmail = this.fireAuth.auth.currentUser.email;
-    //     if (
-    //         event.participantEmails != null &&
-    //         this.inParticipants(event, userEmail)
-    //     ) {
-    //         event.participantEmails = event.participantEmails.filter(
-    //             pe => pe !== userEmail
-    //         );
-    //     } else {
-    //         event.participantEmails.push(userEmail);
-    //     }
-    //     this.createOrUpdateEvent(event);
-    // }
+    async toggleEventSubscribe(event: GEvent) {
+        const userEmail = this.fireAuth.auth.currentUser.email;
+        if (
+            event.participantEmails != null &&
+            this.inParticipants(event, userEmail)
+        ) {
+            event.participantEmails = event.participantEmails.filter(
+                pe => pe !== userEmail
+            );
+        } else {
+            event.participantEmails.push(userEmail);
+        }
+        this.createOrUpdateEvent(event);
+    }
 
     private inParticipants(event: GEvent, userEmail) {
         return (

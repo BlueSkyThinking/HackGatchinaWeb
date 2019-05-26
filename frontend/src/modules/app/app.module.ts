@@ -16,6 +16,7 @@ import { userReducer } from './reducers/user.reducer';
 import {
     MatButtonModule,
     MatCardModule,
+    MatChipsModule,
     MatMenuModule,
 } from '@angular/material';
 import { UserInfoComponent } from './components/user-info/user-info.component';
@@ -78,6 +79,7 @@ const firebaseConfig = {
         }),
         MatButtonModule,
         MatMenuModule,
+        MatChipsModule,
 
         AuthorizationModule,
         IconsModule,

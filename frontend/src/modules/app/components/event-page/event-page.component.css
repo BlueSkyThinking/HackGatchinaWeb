@@ -5,6 +5,7 @@
 
 .image {
     background-size: cover;
+    background-position: center;
 }
 
 .content-wrapper {
@@ -18,7 +19,23 @@
 
 .content {
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
     grid-gap: 1.4rem;
     padding: 2.4rem;
+}
+
+.icon-container {
+    width: 1.6rem;
+    height: 1.6rem;
+}
+
+.section {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: 1.2rem;
+}
+
+.section-container {
+    display: grid;
+    grid-gap: 1.4rem;
+    padding: 0 1.4rem;
 }

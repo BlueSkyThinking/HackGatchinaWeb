@@ -27,7 +27,7 @@ import { selectUser } from '../../../authorization/selectors/selectUser';
 export class AddEventPageContainerComponent implements OnDestroy {
     public parameters: EventParameters = {
         description: '',
-        eventSections: [Section.Run, Section.Walk],
+        eventSections: [],
         imgUrl: '',
         name: '',
         ownerEmail: '',
@@ -55,6 +55,7 @@ export class AddEventPageContainerComponent implements OnDestroy {
 
     public handleChange(parameters: EventParameters) {
         this.parameters = parameters;
+        console.log(this.parameters);
     }
 
     public handleCreate() {
